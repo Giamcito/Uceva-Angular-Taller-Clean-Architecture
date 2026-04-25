@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GetAllReviewsUseCase } from '../../../core/application/usecases/get-all-reviews.usecase';
 import { Review } from '../../../core/domain/models/review.model';
 import { AlertComponent } from '../../components/alert/alert.component';
@@ -20,7 +21,7 @@ import { State } from '../../interfaces/state.interface';
 @Component({
   selector: 'app-reviews',
   templateUrl: `./reviews.page.html`,
-  imports: [ReviewsTableComponent, AlertComponent],
+  imports: [CommonModule, ReviewsTableComponent, AlertComponent],
   providers: [GetAllReviewsUseCase]
 })
 export class ReviewsPage {

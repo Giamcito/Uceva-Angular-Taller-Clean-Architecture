@@ -40,9 +40,9 @@ describe('ReviewsTableComponent', () => {
     const firstRow = fixture.nativeElement.querySelector('tbody tr');
     const cells = firstRow.querySelectorAll('td');
 
-    expect(cells[0].textContent).toContain(REVIEWS_MOCKS[0].id);
-    expect(cells[1].textContent).toContain(REVIEWS_MOCKS[0].userId);
-    expect(cells[2].textContent).toContain(REVIEWS_MOCKS[0].productId);
+    expect(cells[0].textContent).toContain(REVIEWS_MOCKS[0].id.toString());
+    expect(cells[1].textContent).toContain(REVIEWS_MOCKS[0].userId.toString());
+    expect(cells[2].textContent).toContain(REVIEWS_MOCKS[0].productId.toString());
     expect(cells[4].textContent).toContain(REVIEWS_MOCKS[0].comment);
   });
 });
