@@ -80,7 +80,7 @@
       }
     }
   },
-  "cli": {
-    "analytics": "6a403c97-1950-452b-a45d-e27f2be16be6"
+  "cli": { 
+    "analytics": false
   }
 }

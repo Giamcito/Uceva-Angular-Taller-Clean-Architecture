@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { OrdersPage } from './presentation/pages/orders/orders.page';
 import { ProductsPage } from './presentation/pages/products/products.page';
 import { UsersPage } from './presentation/pages/users/users.page';
+import { ReviewsPage } from './presentation/pages/reviews/reviews.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -17,6 +18,7 @@ import { UsersPage } from './presentation/pages/users/users.page';
  *
  * @see {@link UsersPage}
  * @see {@link ProductsPage}
+ * @see {@link ReviewsPage}
  */
 export const routes: Routes = [
 
@@ -46,6 +48,13 @@ export const routes: Routes = [
    * de mostrar y gestionar el listado de órdenes.
    */ 
   { path: 'orders', component: OrdersPage },
+   * Ruta de reseñas.
+   *
+   * @remarks
+   * Renderiza el componente `ReviewsPage`, encargado
+   * de mostrar y gestionar el listado de reseñas.
+   */
+  { path: 'reviews', component: ReviewsPage },
 
   /**
    * Ruta comodín.
