@@ -48,6 +48,8 @@ export const routes: Routes = [
    * de mostrar y gestionar el listado de órdenes.
    */ 
   { path: 'orders', component: OrdersPage },
+
+  /**
    * Ruta de reseñas.
    *
    * @remarks

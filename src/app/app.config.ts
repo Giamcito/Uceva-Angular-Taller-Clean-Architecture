@@ -9,15 +9,13 @@ import { OrderLocalRepositoryImpl } from './core/infrastructure/repositories/loc
 import { ProductLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/product-local.repository.impl';
 import { UserLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/user-local.repository.impl';
 import { ReviewRepository } from './core/domain/repositories/review.repository';
+import { ReviewLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/review-local.repository.impl';
 import { ProductNodeRepositoryImpl } from './core/infrastructure/repositories/node-implementation/product-node.repository.impl';
 import { UserNodeRepositoryImpl } from './core/infrastructure/repositories/node-implementation/user-node.repository.impl';
 import { ReviewNodeRepositoryImpl } from './core/infrastructure/repositories/node-implementation/review-node.repository.impl';
 import { UserSpringBootRepositoryImpl } from './core/infrastructure/repositories/springboot-implementation/user-springboot.repository.impl';
 import { ProductSpringBootRepositoryImpl } from './core/infrastructure/repositories/springboot-implementation/product-springboot.repository.impl';
 import { ReviewSpringBootRepositoryImpl } from './core/infrastructure/repositories/springboot-implementation/review-springboot.repository.impl';
-import { UserLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/user-local.repository.impl';
-import { ProductLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/product-local.repository.impl';
-import { ReviewLocalRepositoryImpl } from './core/infrastructure/repositories/local-implementation/review-local.repository.impl';
 
 /**
  * Configuración principal de la aplicación Angular.

@@ -246,6 +246,8 @@ export class DataService {
     getAllOrdersSpringBoot(countOrders: number): Observable<Order[]> {
         return this.httpClient.get<Order[]>(`${this.springBootUrl}/orders?count=${countOrders}`);
     }
+
+    /**
      * Obtiene el listado de reseñas desde datos locales simulados.
      *
      * @remarks
