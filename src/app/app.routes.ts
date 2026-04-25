@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { UsersPage } from './presentation/pages/users/users.page';
+import { OrdersPage } from './presentation/pages/orders/orders.page';
 import { ProductsPage } from './presentation/pages/products/products.page';
+import { UsersPage } from './presentation/pages/users/users.page';
 import { ReviewsPage } from './presentation/pages/reviews/reviews.page';
 
 /**
@@ -40,6 +41,13 @@ export const routes: Routes = [
   { path: 'products', component: ProductsPage },
 
   /**
+   * Ruta de órdenes.
+   *
+   * @remarks
+   * Renderiza el componente `OrdersPage`, encargado
+   * de mostrar y gestionar el listado de órdenes.
+   */ 
+  { path: 'orders', component: OrdersPage },
    * Ruta de reseñas.
    *
    * @remarks
