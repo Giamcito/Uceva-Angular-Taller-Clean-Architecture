@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { OrdersPage } from './presentation/pages/orders/orders.page';
 import { ProductsPage } from './presentation/pages/products/products.page';
 import { UsersPage } from './presentation/pages/users/users.page';
 
