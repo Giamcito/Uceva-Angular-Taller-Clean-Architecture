@@ -1,11 +1,17 @@
-<app-alert [state]="state"></app-alert>
+@switch(state){
 
-<div *ngIf="state === 'success'" class="container-fluid">
-  <app-reviews-table [reviews]="reviews"></app-reviews-table>
-</div>
+    @case('loading'){
+        <app-alert alertState="loading" text="Cargando Reseñas..." ></app-alert>
+    }
 
-<div *ngIf="state === 'loading'" class="d-flex justify-content-center align-items-center mt-5">
-  <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Cargando...</span>
-  </div>
-</div>
+    @case('error'){
+        <app-alert alertState="error" text="Error al Cargar las Reseñas" ></app-alert>
+    }
+
+    @case('success'){
+        <div class="container-fluid">
+            <app-reviews-table [reviews]="reviews"></app-reviews-table>
+        </div>
+    }
+
+}
