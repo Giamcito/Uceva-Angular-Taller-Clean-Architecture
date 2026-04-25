@@ -215,7 +215,7 @@ export class DataService {
                 id: i,
                 orderNumber: `ORD-${Date.now()}-${i}`,
                 customerName: faker.person.fullName(),
-                totalPrice: faker.number.float({ min: 10000, max: 500000, precision: 100 }),
+                totalPrice: faker.number.float({ min: 10000, max: 500000, fractionDigits: 2 }),
                 status: faker.helpers.arrayElement(statuses),
                 createdDate: faker.date.past(),
                 itemsCount: faker.number.int({ min: 1, max: 20 })
