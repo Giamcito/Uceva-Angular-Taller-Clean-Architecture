@@ -3,8 +3,11 @@ import { inject, Injectable } from "@angular/core";
 import { faker } from '@faker-js/faker';
 import { Observable, of } from "rxjs";
 import { environment } from "../../../../environments/environment";
+import { Order, OrderStatus } from "../../domain/models/order.model";
 import { Product, ProductCategory } from "../../domain/models/product.model";
 import { User, UserEngineering } from "../../domain/models/user.model";
+import { Review } from "../../domain/models/review.model";
+import { REVIEWS_MOCKS } from "../../../mocks/reviews.mocks";
 
 /**
  * Servicio de infraestructura para obtención de datos.
@@ -197,6 +200,110 @@ export class DataService {
      */
     getAllProductsSpringBoot(countProducts: number): Observable<Product[]> {
         return this.httpClient.get<Product[]>(`${this.springBootUrl}/products/${countProducts}`);
+    }
+
+    /**
+     * Obtiene el listado de ÓRDENES desde datos locales simulados.
+     *
+     * @param countOrders - Cantidad de órdenes a solicitar
+     * @returns Observable que emite un arreglo de {@link Order}
+     */
+    getAllOrdersLocal(countOrders: number): Observable<Order[]> {
+        const orders: Order[] = [];
+        const statuses: OrderStatus[] = ['Pending', 'Processing', 'Completed', 'Cancelled'];
+
+        for(let i = 1; i <= countOrders; i++) {
+            orders.push({
+                id: i,
+                orderNumber: `ORD-${Date.now()}-${i}`,
+                customerName: faker.person.fullName(),
+                totalPrice: faker.number.float({ min: 10000, max: 500000, fractionDigits: 2 }),
+                status: faker.helpers.arrayElement(statuses),
+                createdDate: faker.date.past(),
+                itemsCount: faker.number.int({ min: 1, max: 20 })
+            });
+        }
+
+        return of(orders);
+    }
+
+    /**
+     * Obtiene el listado de ÓRDENES desde el backend Node.
+     *
+     * @param countOrders - Cantidad de órdenes a solicitar
+     * @returns Observable que emite un arreglo de {@link Order}
+     */
+    getAllOrdersNode(countOrders: number): Observable<Order[]> {
+        return this.httpClient.get<Order[]>(`${this.nodeUrl}/orders?count=${countOrders}`);
+    }
+
+    /**
+     * Obtiene el listado de ÓRDENES desde el backend SpringBoot.
+     *
+     * @param countOrders - Cantidad de órdenes a solicitar
+     * @returns Observable que emite un arreglo de {@link Order}
+     */
+    getAllOrdersSpringBoot(countOrders: number): Observable<Order[]> {
+        return this.httpClient.get<Order[]>(`${this.springBootUrl}/orders?count=${countOrders}`);
+    }
+     * Obtiene el listado de reseñas desde datos locales simulados.
+     *
+     * @remarks
+     * Retorna los datos mock definidos en {@link REVIEWS_MOCKS}.
+     *
+     * @returns Observable que emite un arreglo de {@link Review}
+     *
+     * @example
+     * ```ts
+     * this.dataService.getAllReviewsLocal().subscribe(reviews => {
+     *   console.log(reviews);
+     * });
+     * ```
+     */
+    getAllReviewsLocal(): Observable<Review[]> {
+        return of(REVIEWS_MOCKS);
+    }
+
+    /**
+     * Obtiene el listado de reseñas desde el backend Node.js.
+     *
+     * @remarks
+     * Realiza una petición HTTP GET al endpoint
+     * `/reviews/{countReviews}`.
+     *
+     * @param countReviews - Cantidad de reseñas a solicitar
+     * @returns Observable que emite un arreglo de {@link Review}
+     *
+     * @example
+     * ```ts
+     * this.dataService.getAllReviewsNode(10).subscribe(reviews => {
+     *   console.log(reviews);
+     * });
+     * ```
+     */
+    getAllReviewsNode(countReviews: number): Observable<Review[]> {
+        return this.httpClient.get<Review[]>(`${this.nodeUrl}/reviews/${countReviews}`);
+    }
+
+    /**
+     * Obtiene el listado de reseñas desde el backend SpringBoot.
+     *
+     * @remarks
+     * Realiza una petición HTTP GET al endpoint
+     * `/reviews/{countReviews}`.
+     *
+     * @param countReviews - Cantidad de reseñas a solicitar
+     * @returns Observable que emite un arreglo de {@link Review}
+     *
+     * @example
+     * ```ts
+     * this.dataService.getAllReviewsSpringBoot(10).subscribe(reviews => {
+     *   console.log(reviews);
+     * });
+     * ```
+     */
+    getAllReviewsSpringBoot(countReviews: number): Observable<Review[]> {
+        return this.httpClient.get<Review[]>(`${this.springBootUrl}/reviews/${countReviews}`);
     }
 
 }
