@@ -54,11 +54,13 @@ export const appConfig: ApplicationConfig = {
     //{ provide: UserRepository, useClass: UserNodeRepositoryImpl },
     //{ provide: ProductRepository, useClass: ProductNodeRepositoryImpl },
     //{ provide: ReviewRepository, useClass: ReviewNodeRepositoryImpl },
+    //{ provide: OrderRepository, useClass: OrderNodeRepositoryImpl },
 
     //SpringBoot Providers
     //{ provide: UserRepository, useClass: UserSpringBootRepositoryImpl },
     //{ provide: ProductRepository, useClass: ProductSpringBootRepositoryImpl },
     //{ provide: ReviewRepository, useClass: ReviewSpringBootRepositoryImpl },
+    //{ provide: OrderRepository, useClass: OrderSpringBootRepositoryImpl },
 
     /**
      * Proveedor de listeners globales de errores del navegador.
